@@ -1,0 +1,142 @@
+/**
+ * Frontend Stylesheet for GPP Elementor Property Details Widget
+ */
+
+.gpp-elementor-widget {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.gpp-elementor-widget * {
+    box-sizing: border-box;
+}
+
+/* Grid Layout */
+.gpp-layout-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.gpp-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gpp-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gpp-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* List Layout */
+.gpp-layout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Common Item Cards */
+.gpp-widget-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gpp-widget-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border-color: #cbd5e1;
+}
+
+/* Icon box */
+.gpp-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.gpp-detail-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: #3b82f6; /* Will be overridden by Elementor color controls */
+    transition: transform 0.2s ease;
+}
+
+.gpp-widget-item:hover .gpp-detail-icon svg {
+    transform: scale(1.1);
+}
+
+/* Meta texts */
+.gpp-detail-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Prevents overflow */
+}
+
+.gpp-detail-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b; /* Overridden by style controls */
+    margin-bottom: 2px;
+}
+
+.gpp-detail-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b; /* Overridden by style controls */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+    .gpp-cols-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .gpp-cols-4,
+    .gpp-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gpp-widget-item {
+        padding: 12px 15px;
+    }
+    
+    .gpp-detail-icon {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+    }
+    
+    .gpp-detail-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .gpp-detail-value {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 479px) {
+    .gpp-cols-4,
+    .gpp-cols-3,
+    .gpp-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}

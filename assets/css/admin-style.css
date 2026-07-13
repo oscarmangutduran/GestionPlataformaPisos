@@ -1,0 +1,516 @@
+/**
+ * Premium Admin CSS for Sincronizador Inmobiliario Multiplataforma
+ */
+
+:root {
+    --gpp-primary-color: #3b82f6;
+    --gpp-primary-hover: #2563eb;
+    --gpp-success-color: #10b981;
+    --gpp-error-color: #ef4444;
+    --gpp-warning-color: #f59e0b;
+    --gpp-dark-bg: #0f172a;
+    --gpp-dark-card: #1e293b;
+    --gpp-border-color: #e2e8f0;
+    --gpp-text-color: #334155;
+    --gpp-light-bg: #f8fafc;
+}
+
+/* Common Admin Wrappers */
+.gpp-admin-wrap {
+    max-width: 1200px;
+    margin: 20px auto 20px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.gpp-admin-header {
+    background: linear-gradient(135deg, var(--gpp-dark-card) 0%, #111827 100%);
+    padding: 30px;
+    border-radius: 12px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.gpp-admin-header h1 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gpp-admin-header p {
+    font-size: 16px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Tabs Navigation */
+.gpp-nav-tab-wrapper.nav-tab-wrapper {
+    border-bottom: 2px solid var(--gpp-border-color);
+    margin-bottom: 25px;
+    padding-left: 0;
+}
+
+.gpp-nav-tab-wrapper .nav-tab {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 20px;
+    color: #64748b;
+    border: none;
+    background: none;
+    margin-right: 5px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.gpp-nav-tab-wrapper .nav-tab:hover {
+    color: var(--gpp-primary-color);
+}
+
+.gpp-nav-tab-wrapper .nav-tab-active,
+.gpp-nav-tab-wrapper .nav-tab-active:hover {
+    color: var(--gpp-primary-color);
+    border-bottom: 3px solid var(--gpp-primary-color);
+    background: none;
+    font-weight: 700;
+}
+
+.gpp-nav-tab-wrapper .nav-tab .dashicons {
+    margin-right: 6px;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Cards & Layouts */
+.gpp-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid var(--gpp-border-color);
+}
+
+.gpp-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gpp-dark-card);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.gpp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--gpp-border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.gpp-card-header h2 {
+    margin: 0;
+}
+
+.gpp-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 782px) {
+    .gpp-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Controls */
+.gpp-form-group {
+    margin-bottom: 20px;
+}
+
+.gpp-form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--gpp-text-color);
+    margin-bottom: 8px;
+}
+
+.gpp-form-group input[type="text"],
+.gpp-form-group input[type="password"] {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--gpp-border-color);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+    transition: border-color 0.15s ease-in-out;
+}
+
+.gpp-form-group input:focus {
+    border-color: var(--gpp-primary-color);
+    box-shadow: 0 0 0 1px var(--gpp-primary-color);
+    outline: none;
+}
+
+/* Switch Styling */
+.gpp-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.gpp-switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 26px;
+}
+
+.gpp-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.gpp-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: .3s;
+    border-radius: 34px;
+}
+
+.gpp-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.gpp-switch input:checked + .gpp-slider {
+    background-color: var(--gpp-primary-color);
+}
+
+.gpp-switch input:checked + .gpp-slider:before {
+    transform: translateX(22px);
+}
+
+.gpp-control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gpp-info-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.gpp-info-text strong {
+    font-size: 16px;
+    color: var(--gpp-dark-card);
+}
+
+/* Mapping Table */
+.gpp-mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gpp-mapping-table th {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid var(--gpp-border-color);
+    font-weight: 700;
+    color: var(--gpp-text-color);
+}
+
+.gpp-mapping-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--gpp-border-color);
+    vertical-align: middle;
+}
+
+.gpp-mapping-table select {
+    min-width: 250px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--gpp-border-color);
+}
+
+.gpp-attr-code {
+    display: block;
+    margin-top: 4px;
+}
+
+.gpp-attr-code code {
+    background: var(--gpp-light-bg);
+    color: #475569;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* Submit Button Override */
+.gpp-submit-btn.button.button-primary {
+    background: var(--gpp-primary-color);
+    border-color: var(--gpp-primary-hover);
+    padding: 6px 24px;
+    height: auto;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: background 0.15s ease-in-out;
+}
+
+.gpp-submit-btn.button.button-primary:hover {
+    background: var(--gpp-primary-hover);
+}
+
+/* Custom Post Type Metabox Elements */
+.gpp-meta-container {
+    padding: 10px 0;
+}
+
+.gpp-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gpp-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gpp-meta-row {
+    margin-bottom: 20px;
+}
+
+.gpp-meta-col label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--gpp-text-color);
+}
+
+.gpp-meta-col input[type="number"],
+.gpp-meta-col input[type="text"],
+.gpp-meta-col select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid var(--gpp-border-color);
+}
+
+.gpp-divider {
+    border: 0;
+    border-top: 1px solid var(--gpp-border-color);
+    margin: 25px 0;
+}
+
+.gpp-gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    border: 2px dashed var(--gpp-border-color);
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 100px;
+    background: var(--gpp-light-bg);
+}
+
+.gpp-gallery-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--gpp-border-color);
+}
+
+.gpp-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gpp-remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(239, 68, 68, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    text-align: center;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+}
+
+.gpp-remove-image:hover {
+    background: var(--gpp-error-color);
+}
+
+/* Logging Dashboard Table */
+.gpp-logs-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gpp-portal-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.gpp-badge-idealista {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.gpp-badge-fotocasa {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.gpp-status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.gpp-status-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.gpp-status-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.gpp-status-pending {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.gpp-log-msg {
+    color: var(--gpp-text-color);
+    font-size: 13px;
+}
+
+.gpp-toggle-details-btn {
+    font-size: 12px;
+    color: var(--gpp-primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.gpp-toggle-details-btn:hover {
+    color: var(--gpp-primary-hover);
+}
+
+.gpp-log-details-container {
+    padding: 20px !important;
+    background-color: var(--gpp-light-bg) !important;
+}
+
+.gpp-log-payloads-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.gpp-payload-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--gpp-dark-card);
+}
+
+.gpp-code-block {
+    background: var(--gpp-dark-bg);
+    color: #a7f3d0; /* Mint color for readibility */
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: Courier, monospace;
+    font-size: 12px;
+    max-height: 250px;
+    margin: 0;
+    border: 1px solid #1e293b;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gpp-code-block code {
+    color: inherit;
+    font-family: inherit;
+}
+
+.gpp-empty-state {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.gpp-empty-state p {
+    font-size: 16px;
+    color: #64748b;
+    margin-top: 15px;
+}
+
+/* Custom classic switch style */
+.gpp-switch-label {
+    background: var(--gpp-light-bg);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--gpp-border-color);
+}
+.gpp-switch-label span {
+    font-weight: 600;
+}
+
+.gpp-test-result {
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.gpp-test-result.success {
+    color: var(--gpp-success-color);
+}
+.gpp-test-result.error {
+    color: var(--gpp-error-color);
+}
