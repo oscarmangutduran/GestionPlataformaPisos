@@ -24,7 +24,7 @@ class GPP_Elementor {
      * Enqueue styles for our dynamic Elementor widgets
      */
     public function enqueue_frontend_styles() {
-        wp_register_style( 'gpp-elementor-style', GPP_PLUGIN_URL . 'assets/css/elementor-style.css', array(), GPP_VERSION );
+        wp_register_style( 'gpp-elementor-style', GPP_PLUGIN_URL . 'assets/css/frontend-style.css', array(), GPP_VERSION );
     }
 
     /**

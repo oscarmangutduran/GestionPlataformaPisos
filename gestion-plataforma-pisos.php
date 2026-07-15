@@ -69,6 +69,12 @@ class GestionPlataformaPisos {
         require_once GPP_PLUGIN_DIR . 'includes/portals/class-gpp-portal-idealista.php';
         require_once GPP_PLUGIN_DIR . 'includes/portals/class-gpp-portal-fotocasa.php';
 
+        // Universal visual builder integration classes
+        require_once GPP_PLUGIN_DIR . 'includes/class-gpp-helpers.php';
+        require_once GPP_PLUGIN_DIR . 'includes/class-gpp-shortcodes.php';
+        require_once GPP_PLUGIN_DIR . 'includes/class-gpp-gutenberg.php';
+        require_once GPP_PLUGIN_DIR . 'includes/class-gpp-wpbakery.php';
+
         // Load Elementor integration if active
         if ( did_action( 'elementor/loaded' ) ) {
             require_once GPP_PLUGIN_DIR . 'includes/class-gpp-elementor.php';
@@ -85,6 +91,11 @@ class GestionPlataformaPisos {
         $this->settings      = new GPP_Settings();
         $this->sync_engine   = new GPP_Sync_Engine();
 
+        // Initialize Universal Builders / Shortcodes / Gutenberg / WPBakery modules
+        new GPP_Shortcodes();
+        new GPP_Gutenberg();
+        new GPP_WPBakery();
+
         if ( did_action( 'elementor/loaded' ) ) {
             new GPP_Elementor();
         }
@@ -97,6 +108,14 @@ class GestionPlataformaPisos {
         // Enqueue styles and scripts for blocks and admin if needed here
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
         add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'register_frontend_assets' ) );
+    }
+
+    /**
+     * Register Universal Frontend Assets
+     */
+    public function register_frontend_assets() {
+        wp_register_style( 'gpp-frontend-style', GPP_PLUGIN_URL . 'assets/css/frontend-style.css', array(), GPP_VERSION );
     }
 
     /**
@@ -132,6 +151,23 @@ class GestionPlataformaPisos {
                 true
             );
         }
+
+        // Register blocks definitions script
+        wp_enqueue_script(
+            'gpp-gutenberg-blocks',
+            GPP_PLUGIN_URL . 'assets/js/gutenberg-blocks.js',
+            array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-server-side-render' ),
+            GPP_VERSION,
+            true
+        );
+
+        // Load frontend stylesheet in editor context for accurate preview styling
+        wp_enqueue_style(
+            'gpp-frontend-style',
+            GPP_PLUGIN_URL . 'assets/css/frontend-style.css',
+            array(),
+            GPP_VERSION
+        );
     }
 
     /**
